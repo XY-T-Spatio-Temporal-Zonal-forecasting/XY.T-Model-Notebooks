@@ -1,0 +1,25 @@
+combined_matches_2068, 2269, 2417.csv'
+combined_matches.csv
+*.csv
+.ipynb_checkpoints
+/preprocessed_data
+/GRU-Ensemble
+/MDN
+/TCN-Classification
+*.keras
+
+football-forecaster
+TCN-Regression
+
+/backend/app/data/preprocessed_data
+/backend/.env*
+/football-dashboard/node_modules
+/testings
+current_best_models
+tmpclaude*
+/Notebook Main/preprocessed_data
+__pycache__
+/backend
+/football-dashboard
+backend
+football-dashboard
