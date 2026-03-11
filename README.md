@@ -30,34 +30,14 @@ MODEL/
 │   ├── GNN_Notebook.ipynb      # GNN-TCN spatio-temporal training
 │   ├── MDN-TCN.ipynb           # Mixture Density Network training
 │   └── preprocessed_data/      # Cached train/val/test DataFrames
-│
-├── backend/                    # FastAPI serving layer
-│   ├── main.py                 # App entry point & lifespan startup
-│   └── app/
-│       ├── core/               # Settings & env config
-│       ├── data/               # Data loading & pipeline
-│       ├── inference/          # InferenceService + custom TCN layers
-│       ├── models/             # Pydantic schemas
-│       ├── routers/            # REST endpoints
-│       ├── services/           # DB, data, model loader, tactical AI
-│       └── utils/
-│
-├── football-dashboard/         # React + Tailwind CSS frontend
-│   └── src/
-│       └── components/         # Pitch viz, player tracking, tactical coach
-│
-├── current_best_models/        # Production-ready saved models
-├── TCN-Classification/         # TCN classification model checkpoints
-├── TCN-Regression/             # TCN regression model checkpoints
-├── MDN/                        # MDN model checkpoints
-├── GRU-Ensemble/               # GRU ensemble experiments
-├── preprocessed_data/          # Root-level preprocessed data cache
+
 ├── Reports/                    # Model evaluation reports
-├── combined_matches.csv        # Raw combined match tracking data
 └── requirements.txt            # Python dependencies
 ```
 
 ---
+
+Datasets can be found in https://www.kaggle.com/hashirhalaldeen/datasets
 
 ## Models
 
@@ -120,59 +100,14 @@ Mixture Density Network for probabilistic coordinate regression — outputs a di
 pip install -r requirements.txt
 ```
 
-For the backend specifically:
-
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
----
-
 ### 2. Set Up Preprocessed Data
 
-Download the preprocessed DataFrames from Kaggle and place them in:
+Download the preprocessed DataFrames from Kaggle(https://www.kaggle.com/hashirhalaldeen/datasets) and place them in:
 
 ```
 backend/app/data/preprocessed_data/
 Notebook Main/preprocessed_data/
 ```
-
----
-
-### 3. Configure Environment Variables
-
-Create a `.env` file inside `backend/`:
-
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/football_db
-TCN_MODEL_PATH=app/inference/models/TCN-Classification/<model>.keras
-GEMINI_API_KEY=your_gemini_api_key
-DEBUG=true
-```
-
----
-
-### 4. Start the Backend
-
-```bash
-cd backend
-uvicorn main:app --reload --port 8000
-```
-
-API docs available at: `http://localhost:8000/docs`
-
----
-
-### 5. Start the Frontend
-
-```bash
-cd football-dashboard
-npm install
-npm run dev
-```
-
-Dashboard available at: `http://localhost:5173`
 
 ---
 
